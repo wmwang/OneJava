@@ -20,4 +20,4 @@ spec:
         ports:
         - containerPort: 8233
         - containerPort: 7233 # Temporal 默認開發模式端口
-        args: ["temporal", "server", "start-dev", "--ip", "0.0.0.0"] # 確保服務綁定到 0.0.0.0
+        args: ["temporal", "server", "start-dev"] # 確保服務綁定到 0.0.0.0
