@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: temporal-cli-container
-        image: tr920/temporal-cli:1.0
+        image: tr920/temperol-server:1.0
         ports:
         - containerPort: 8233
         - containerPort: 7233 # Temporal 默認開發模式端口
