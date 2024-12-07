@@ -10,4 +10,5 @@ spec:
       protocol: TCP
       port: 8233
       targetPort: 8233
-  type: ClusterIP
+      nodePort: 30000  # 隨意指定一個未使用的 NodePort
+  type: NodePort
