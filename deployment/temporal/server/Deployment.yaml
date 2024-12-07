@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temporal
+  labels:
+    app: temporal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temporal
+  template:
+    metadata:
+      labels:
+        app: temporal
+    spec:
+      containers:
+        - name: temporal
+          image: temporalio/auto-setup:latest
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+          env:
+            - name: TEMPORAL_CLI_ADDRESS
+              value: "127.0.0.1:8080"
