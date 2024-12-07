@@ -1,0 +1,26 @@
+# 使用一個輕量級的 Linux 映像作為基礎
+FROM debian:bullseye-slim
+
+# 設定環境變數，避免交互式安裝
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 更新系統並安裝必要的工具
+RUN apt-get update && apt-get install -y \
+    curl \
+    tar \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# 下載 temporal CLI 的 tar.gz 文件並解壓到 /usr/local/bin
+RUN curl -L -o /tmp/temporal_cli.tar.gz https://github.com/temporalio/cli/releases/download/v1.1.2/temporal_cli_1.1.2_linux_amd64.tar.gz \
+    && tar -xzf /tmp/temporal_cli.tar.gz -C /usr/local/bin \
+    && rm /tmp/temporal_cli.tar.gz
+
+# 切換工作目錄
+WORKDIR /usr/local/bin
+
+# 設置入口命令
+CMD ["temporal", "server", "start-dev","--ip", "0.0.0.0"]
+
+
+EXPOSE 7233 8233
