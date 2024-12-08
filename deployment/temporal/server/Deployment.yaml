@@ -20,4 +20,4 @@ spec:
         ports:
         - containerPort: 8080
         - containerPort: 7233
-        args: ["temporal", "server", "start-dev", "--ip", "0.0.0.0","--log-level=never","--db-filename=temporal.db","--ui-port 8080"] # 確保服務綁定到 0.0.0.0
+        args: ["temporal", "server", "start-dev", "--ip", "0.0.0.0","--log-level=never","--db-filename=temporal.db","--ui-port", "8080"] # 確保服務綁定到 0.0.0.0
