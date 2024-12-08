@@ -9,4 +9,7 @@ spec:
     - protocol: TCP
       port: 8233
       targetPort: 8233
+    - protocol: TCP
+      port: 7233
+      targetPort: 2233
   type: NodePort

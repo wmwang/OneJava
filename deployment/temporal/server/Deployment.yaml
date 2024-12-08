@@ -19,4 +19,5 @@ spec:
         image: tr920/temperol-server:1.0
         ports:
         - containerPort: 8233
+        - containerPort: 7233
         args: ["temporal", "server", "start-dev", "--ip", "0.0.0.0"] # 確保服務綁定到 0.0.0.0
