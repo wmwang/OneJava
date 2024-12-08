@@ -4,11 +4,9 @@ metadata:
   name: temporal
 spec:
   selector:
-    app: temporal
+    app: temporal-cli
   ports:
-    - name: http
-      protocol: TCP
+    - protocol: TCP
       port: 8233
       targetPort: 8233
-      nodePort: 30000  # 隨意指定一個未使用的 NodePort
   type: NodePort
