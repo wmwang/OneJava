@@ -1,16 +1,20 @@
-//====================================
-//題目說明：以下程式在 Java 9 SDK可順利編譯，但Java 17 中會產生運行時的警告。
+//========================================================================
+//題目說明：以下程式只能在較舊版本的SDK運行，請透過自動化工具調整為在較新的SDK也可運行
 //
-//題目要求：請透過LLM及相關tooling，調整程式，使得可以在Java17 環境中運行。
+//提示(題目組內部參考)：Thread.stop() 是早期java使用的函數，在較新的Java runtime環境會產生運行時的警告
 //
-//驗證：
-//請確認參賽包workshop_tool腳本已運行，其中java-17-app為已準備好的java 17 SDK runtime container，可執行下列指令獲得編譯結果
+//題目Input： ./java/A1-3.java
 //
-//>> docker run --rm -v $(pwd):/app java-17-app
-//>> 會出現WARNING: Thread.stop() is inherently unsafe and may cause inconsistent state
+//題目Output： 生成的檔案需為 ./java/A1-3-answer.java
 //
-//內部參考：Thread.stop() 是早起java使用的函數，在較新的Java runtime環境會產生運行時的警告
-//====================================
+//開發環境：
+//請確認參賽包workshop_tool腳本已運行，將產生名為java-A1-3 container，可自動將./java/A1-3-answer.java程式在Java 17環境編譯並執行
+//
+//指令： docker run --rm -v ./java:/host-java-files java-A1-3 
+//
+//驗證： 校驗腳本將分別對A1-3.java、A1-3-answer.java 兩個程式輸出結果比對，確認.1)編譯結果正確及.2)程式輸出結果一致。
+//========================================================================
+
 public class Main {
     public static void main(String[] args) {
         Thread thread = new Thread(() -> {
