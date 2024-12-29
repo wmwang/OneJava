@@ -1,0 +1,79 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: c1-1
+  namespace: '76697196519'
+  selfLink: /apis/serving.knative.dev/v1/namespaces/76697196519/services/c1-1
+  uid: aefb672f-97ba-446a-bb88-66272d727f94
+  resourceVersion: AAYqZL9yMCs
+  generation: 1
+  creationTimestamp: '2024-12-29T08:47:10.848245Z'
+  labels:
+    cloud.googleapis.com/location: asia-east1
+  annotations:
+    run.googleapis.com/build-enable-automatic-updates: 'false'
+    run.googleapis.com/build-id: e12e0b96-5db0-4218-a25e-a0bca6f45e7b
+    run.googleapis.com/build-image-uri: asia-east1-docker.pkg.dev/celtic-parser-191006/cloud-run-source-deploy/c1-1
+    run.googleapis.com/build-name: projects/76697196519/locations/global/builds/e12e0b96-5db0-4218-a25e-a0bca6f45e7b
+    run.googleapis.com/client-name: gcloud
+    run.googleapis.com/client-version: 504.0.1
+    serving.knative.dev/creator: isoosman9900@gmail.com
+    serving.knative.dev/lastModifier: isoosman9900@gmail.com
+    run.googleapis.com/operation-id: 70b42bd3-bd6c-4cc6-a4cb-b840590be838
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+    run.googleapis.com/urls: '["https://c1-1-76697196519.asia-east1.run.app","https://c1-1-zejccgdqra-de.a.run.app"]'
+spec:
+  template:
+    metadata:
+      labels:
+        client.knative.dev/nonce: avfgfujpxw
+        run.googleapis.com/startupProbeType: Default
+      annotations:
+        run.googleapis.com/client-name: gcloud
+        run.googleapis.com/client-version: 504.0.1
+        autoscaling.knative.dev/maxScale: '100'
+        run.googleapis.com/startup-cpu-boost: 'true'
+    spec:
+      containerConcurrency: 80
+      timeoutSeconds: 300
+      serviceAccountName: 76697196519-compute@developer.gserviceaccount.com
+      containers:
+      - image: asia-east1-docker.pkg.dev/celtic-parser-191006/cloud-run-source-deploy/c1-1@sha256:aa8d973063f05e356bac509f64fe2ea72c6d54384d2ce9eb0813ca097067ca35
+        ports:
+        - name: http1
+          containerPort: 8080
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: 1000m
+        startupProbe:
+          timeoutSeconds: 240
+          periodSeconds: 240
+          failureThreshold: 1
+          tcpSocket:
+            port: 8080
+  traffic:
+  - percent: 100
+    latestRevision: true
+status:
+  observedGeneration: 1
+  conditions:
+  - type: Ready
+    status: 'True'
+    lastTransitionTime: '2024-12-29T08:47:37.291819Z'
+  - type: ConfigurationsReady
+    status: 'True'
+    lastTransitionTime: '2024-12-29T08:47:36.071162Z'
+  - type: RoutesReady
+    status: 'True'
+    lastTransitionTime: '2024-12-29T08:47:37.265788Z'
+  latestReadyRevisionName: c1-1-00001-m42
+  latestCreatedRevisionName: c1-1-00001-m42
+  traffic:
+  - revisionName: c1-1-00001-m42
+    percent: 100
+    latestRevision: true
+  url: https://c1-1-zejccgdqra-de.a.run.app
+  address:
+    url: https://c1-1-zejccgdqra-de.a.run.app
