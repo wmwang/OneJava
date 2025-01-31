@@ -1,0 +1,17 @@
+# 使用最新的 Eclipse Temurin JDK 21 作為基底映像
+FROM ubuntu:20.04
+
+# 安裝 Python 2 
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt-get install -y python3 && \
+    rm -rf /var/lib/apt/lists/*
+# 設置工作目錄
+WORKDIR /app
+
+# run bash
+CMD ["tail", "-f", "/dev/null"]
+
+

@@ -260,6 +260,58 @@ with col2:
 # Add separator line
 st.markdown('<div class="line"></div>', unsafe_allow_html=True)
 
+summary_text = """
+<div style="background-color: #f0f8ff; padding: 15px; border-radius: 5px;">
+<h4>效能評估報告</h4>
+
+<h5>關鍵結果</h5>
+<ul>
+<li>Java 執行效率優於 Python（120ms vs 250ms）</li>
+<li>優化後差距仍存在（Java: 80ms, Python: 200ms）</li>
+</ul>
+
+<h5>測試細節</h5>
+<h6>測試場景</h6>
+<p>測試斐波那契數列遞歸程序在兩種語言中的運行性能，使用相同硬件環境。</p>
+
+<h6>詳細結果</h6>
+<table style="width: 100%; border-collapse: collapse;">
+<tr style="background-color: #dde; text-align: left;">
+  <th>語言</th>
+  <th>原始執行時間</th>
+  <th>優化後執行時間</th>
+</tr>
+<tr>
+  <td>Java</td>
+  <td>120ms</td>
+  <td>80ms</td>
+</tr>
+<tr>
+  <td>Python</td>
+  <td>250ms</td>
+  <td>200ms</td>
+</tr>
+</table>
+
+<h5>分析與建議</h5>
+<h6>優勢比較</h6>
+<ul>
+<li><b>Java</b>: 編譯型語言，運行效率高；適合性能敏感的應用</li>
+<li><b>Python</b>: 開發速度快；豐富的庫支持（如 `functools.lru_cache`）；易於維護</li>
+</ul>
+
+<h5>使用建議</h5>
+<p>根據專案需求選擇適合的語言：</p>
+<ul>
+<li>重視效能：選擇 Java</li>
+<li>重視開發速度：選擇 Python</li>
+<li>需要平衡兩者時，考慮具體應用場景和團隊專長</li>
+</ul>
+</div>
+"""
+st.markdown(summary_text, unsafe_allow_html=True)
+
+
 # Footer with enhanced design
 st.markdown(
     """

@@ -1,0 +1,17 @@
+# 使用最新的 Eclipse Temurin JDK 21 作為基底映像
+FROM ubuntu:20.04
+
+# 安裝 JDK 8
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    rm -rf /var/lib/apt/lists/*
+RUN update-alternatives --config java
+
+# 設置預設 JDK (可根據需要修改)
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-arm64 # 或其他 JDK 路徑
+ENV PATH $JAVA_HOME/bin:$PATH
+
+# run bash
+CMD ["tail", "-f", "/dev/null"]
+
+
