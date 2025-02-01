@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  java-compiler-api:
+    image: tr920/java-compiler-api:3.4.1
+    ports:
+      - "5566:8080"
+    restart: always
+    #deploy:
+    #  resources:
+    #    limits:
+    #      memory: 512M   # 限制最大内存为 512MB
+    #      cpus: "0.5"     # 限制最大 CPU 使用 50%
+    #    reservations:
+    #      memory: 256M   # 预留 256MB 内存
+    #      cpus: "0.25"   # 预留 25% CPU
